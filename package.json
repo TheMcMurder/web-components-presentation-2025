@@ -1,5 +1,5 @@
 {
-  "name": "my-turborepo",
+  "name": "web-components-presentation-2025",
   "private": true,
   "scripts": {
     "build": "turbo build",
