@@ -1,5 +1,5 @@
 {
-  "name": "003-lit",
+  "name": "003-html-templates",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -10,7 +10,6 @@
     "serve": "vite dev"
   },
   "dependencies": {
-    "lit": "^3.2.1",
     "@repo/vite-config": "workspace:*"
   },
   "devDependencies": {

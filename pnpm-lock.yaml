@@ -47,7 +47,20 @@ importers:
         specifier: workspace:*
         version: link:../../packages/typescript-config
 
-  apps/003-lit:
+  apps/003-html-templates:
+    dependencies:
+      '@repo/vite-config':
+        specifier: workspace:*
+        version: link:../../packages/vite-config
+    devDependencies:
+      '@repo/eslint-config':
+        specifier: workspace:*
+        version: link:../../packages/eslint-config
+      '@repo/typescript-config':
+        specifier: workspace:*
+        version: link:../../packages/typescript-config
+
+  apps/004-lit:
     dependencies:
       '@repo/vite-config':
         specifier: workspace:*
