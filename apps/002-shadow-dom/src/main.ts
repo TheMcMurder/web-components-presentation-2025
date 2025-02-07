@@ -59,8 +59,10 @@ class UpdateButton extends HTMLElement {
 
 // Display component
 class NameDisplay extends HTMLElement {
+  shadow;
   constructor() {
     super();
+    this.shadow = this.attachShadow({ mode: "open" });
     this.render();
   }
 
@@ -75,9 +77,8 @@ class NameDisplay extends HTMLElement {
   }
 
   render() {
-    const shadow = this.attachShadow({ mode: "open" });
     const name = this.getAttribute("name") || "Shadow Dom";
-    shadow.innerHTML = `
+    this.shadow.innerHTML = `
       <style>
         div {
           font-size: 18px;
@@ -97,6 +98,7 @@ class myApp extends HTMLElement {
   }
 
   updateName = (_event) => {
+    console.log("****** shadow update");
     const myNameInput = this.querySelector("name-input");
     const myNameDisplay = this.querySelector("name-display");
     const newName = myNameInput?.value;
