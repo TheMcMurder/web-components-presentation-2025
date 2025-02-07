@@ -21,7 +21,7 @@ importers:
         specifier: 6.1.0
         version: 6.1.0
 
-  apps/custom-element:
+  apps/001-custom-element:
     dependencies:
       '@repo/vite-config':
         specifier: workspace:*
@@ -34,7 +34,7 @@ importers:
         specifier: workspace:*
         version: link:../../packages/typescript-config
 
-  apps/name-updater-custom-element:
+  apps/002-shadow-dom:
     dependencies:
       '@repo/vite-config':
         specifier: workspace:*

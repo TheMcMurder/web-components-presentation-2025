@@ -3,10 +3,19 @@ class NameInput extends HTMLElement {
   inputElement: HTMLInputElement | null;
   constructor() {
     super();
-    this.innerHTML = `
+    const shadow = this.attachShadow({ mode: 'open' });
+    shadow.innerHTML = `
+      <style>
+      input {
+      margin: 10px 0;
+      padding: 5px;
+      width: 100%;
+      box-sizing: border-box;
+      }
+      </style>
       <input type="text" placeholder="Enter a name">
     `;
-    this.inputElement = this.querySelector('input');
+    this.inputElement = shadow.querySelector('input') as HTMLInputElement;
   }
 
   get value() {
@@ -24,12 +33,25 @@ class NameInput extends HTMLElement {
 class UpdateButton extends HTMLElement {
   constructor() {
     super();
-    this.innerHTML = `
+    const shadow = this.attachShadow({ mode: 'open' });
+    shadow.innerHTML = `
+    <style>
+      body {
+        background-color: dimgray;
+      }
+      button {
+        background-color: dimgray;
+    margin: 10px 0;
+    padding: 5px;
+    width: 100%;
+    box-sizing: border-box;
+      }
+    </style>
       <button>Update Name</button>
     `;
-    this.addEventListener('click', () => {
-      this.dispatchEvent(new CustomEvent('update-name', { bubbles: true }));
-    });
+    shadow.querySelector('button')?.addEventListener('click', () => {
+      this.dispatchEvent(new CustomEvent('update-name', { bubbles: true, composed: true }));
+    })
   }
 }
 
@@ -51,8 +73,15 @@ class NameDisplay extends HTMLElement {
   }
 
   render() {
-    const name = this.getAttribute('name') || 'World';
-    this.innerHTML = `
+    const shadow = this.attachShadow({mode: 'open'})
+    const name = this.getAttribute('name') || 'Shadow Dom';
+    shadow.innerHTML = `
+      <style>
+        div {
+          font-size: 18px;
+          margin-top: 20px;
+        }
+      </style>
       <div>Hello, ${name}!</div>
     `;
   }
