@@ -63,7 +63,7 @@ importers:
         specifier: workspace:*
         version: link:../../packages/typescript-config
 
-  apps/name-updater-react:
+  apps/100-react:
     dependencies:
       react:
         specifier: ^19.0.0
