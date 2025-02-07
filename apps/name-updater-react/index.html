@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Name Update App Custom Elements</title>
+  <title>Name Update App React</title>
   <script src="components.js"></script>
   <style>
     body {
@@ -25,23 +25,8 @@
   </style>
 </head>
 <body>
-  <name-input></name-input>
-  <update-button></update-button>
-  <name-display></name-display>
 
   <script type="module" src="/src/main.js"></script>
-  <script>
-    const nameInput = document.querySelector('name-input');
-    const nameDisplay = document.querySelector('name-display');
-
-    document.addEventListener('update-name', () => {
-      const newName = nameInput.value;
-      if (newName) {
-        nameDisplay.setAttribute('name', newName);
-        nameInput.clear();
-      }
-    });
-  </script>
 </body>
 </html>
 
