@@ -25,23 +25,9 @@
   </style>
 </head>
 <body>
-  <name-input></name-input>
-  <update-button></update-button>
-  <name-display></name-display>
+  <my-app></my-app>
 
   <script type="module" src="/src/main.js"></script>
-  <script>
-    const nameInput = document.querySelector('name-input');
-    const nameDisplay = document.querySelector('name-display');
-
-    document.addEventListener('update-name', () => {
-      const newName = nameInput.value;
-      if (newName) {
-        nameDisplay.setAttribute('name', newName);
-        nameInput.clear();
-      }
-    });
-  </script>
 </body>
 </html>
 

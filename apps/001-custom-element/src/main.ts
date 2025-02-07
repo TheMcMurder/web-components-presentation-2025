@@ -58,7 +58,44 @@ class NameDisplay extends HTMLElement {
   }
 }
 
+class myApp extends HTMLElement {
+
+  constructor() {
+    super();
+    this.render();
+    this.addEventListener('update-name', this.updateName)
+  }
+
+  updateName = (_event) => {
+    const myNameInput = this.querySelector('name-input')
+    const myNameDisplay = this.querySelector('name-display')
+    const newName = myNameInput?.value;
+    myNameDisplay?.setAttribute('name', newName)
+    myNameInput?.clear();
+  }
+
+  // const nameInput = document.querySelector('name-input');
+  // const nameDisplay = document.querySelector('name-display');
+
+  // document.addEventListener('update-name', () => {
+  //   const newName = nameInput.value;
+  //   if (newName) {
+  //     nameDisplay.setAttribute('name', newName);
+  //     nameInput.clear();
+  //   }
+  // });
+
+  render() {
+    this.innerHTML = `
+    <name-input></name-input>
+    <update-button></update-button>
+    <name-display></name-display>
+    `;
+  }
+}
+
 // Register custom elements
 customElements.define('name-input', NameInput);
 customElements.define('update-button', UpdateButton);
 customElements.define('name-display', NameDisplay);
+customElements.define('my-app', myApp);
