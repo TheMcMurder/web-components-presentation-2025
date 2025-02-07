@@ -6,7 +6,7 @@ class NameInput extends HTMLElement {
     this.innerHTML = `
       <input type="text" placeholder="Enter a name">
     `;
-    this.inputElement = this.querySelector('input');
+    this.inputElement = this.querySelector("input");
   }
 
   get value() {
@@ -15,7 +15,7 @@ class NameInput extends HTMLElement {
 
   clear() {
     if (this.inputElement) {
-      this.inputElement.value = '';
+      this.inputElement.value = "";
     }
   }
 }
@@ -27,8 +27,8 @@ class UpdateButton extends HTMLElement {
     this.innerHTML = `
       <button>Update Name</button>
     `;
-    this.addEventListener('click', () => {
-      this.dispatchEvent(new CustomEvent('update-name', { bubbles: true }));
+    this.addEventListener("click", () => {
+      this.dispatchEvent(new CustomEvent("update-name", { bubbles: true }));
     });
   }
 }
@@ -41,17 +41,17 @@ class NameDisplay extends HTMLElement {
   }
 
   static get observedAttributes() {
-    return ['name'];
+    return ["name"];
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
-    if (name === 'name') {
+    if (name === "name") {
       this.render();
     }
   }
 
   render() {
-    const name = this.getAttribute('name') || 'World';
+    const name = this.getAttribute("name") || "World";
     this.innerHTML = `
       <div>Hello, ${name}!</div>
     `;
@@ -59,20 +59,19 @@ class NameDisplay extends HTMLElement {
 }
 
 class myApp extends HTMLElement {
-
   constructor() {
     super();
     this.render();
-    this.addEventListener('update-name', this.updateName)
+    this.addEventListener("update-name", this.updateName);
   }
 
   updateName = (_event) => {
-    const myNameInput = this.querySelector('name-input')
-    const myNameDisplay = this.querySelector('name-display')
+    const myNameInput = this.querySelector("name-input");
+    const myNameDisplay = this.querySelector("name-display");
     const newName = myNameInput?.value;
-    myNameDisplay?.setAttribute('name', newName)
+    myNameDisplay?.setAttribute("name", newName);
     myNameInput?.clear();
-  }
+  };
 
   render() {
     this.innerHTML = `
@@ -84,7 +83,7 @@ class myApp extends HTMLElement {
 }
 
 // Register custom elements
-customElements.define('name-input', NameInput);
-customElements.define('update-button', UpdateButton);
-customElements.define('name-display', NameDisplay);
-customElements.define('my-app', myApp);
+customElements.define("name-input", NameInput);
+customElements.define("update-button", UpdateButton);
+customElements.define("name-display", NameDisplay);
+customElements.define("my-app", myApp);

@@ -1,10 +1,15 @@
-import React, {useActionState} from 'react';
-import { useFormStatus } from 'react-dom';
-import { createRoot } from 'react-dom/client'
+import React, { useActionState } from "react";
+import { useFormStatus } from "react-dom";
+import { createRoot } from "react-dom/client";
 
 function NameInput() {
   return (
-    <input className="name-input" type="text" name="name" placeholder="Enter your name" />
+    <input
+      className="name-input"
+      type="text"
+      name="name"
+      placeholder="Enter your name"
+    />
   );
 }
 
@@ -18,16 +23,16 @@ function SubmitButton() {
 }
 
 function NameDisplay({ name }) {
-  return <div className="name-display">Hello, {name || 'Stranger'}!</div>;
+  return <div className="name-display">Hello, {name || "Stranger"}!</div>;
 }
 
 async function submitAction(_prevState, formData) {
-  const name = formData.get('name');
+  const name = formData.get("name");
   return { name };
 }
 
 function App() {
-  const [state, formAction] = useActionState(submitAction, { name: '' });
+  const [state, formAction] = useActionState(submitAction, { name: "" });
 
   return (
     <div>
@@ -40,7 +45,6 @@ function App() {
   );
 }
 
-
-const domNode = document.querySelector('react-app');
+const domNode = document.querySelector("react-app");
 const root = createRoot(domNode);
-root.render(<App/>);
+root.render(<App />);
