@@ -21,8 +21,8 @@ function NameDisplay({ name }) {
   return <div className="name-display">Hello, {name || 'Stranger'}!</div>;
 }
 
-function submitAction(formData) {
-  const { name } = formData;
+async function submitAction(_prevState, formData) {
+  const name = formData.get('name');
   return { name };
 }
 
