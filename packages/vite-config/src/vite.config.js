@@ -33,7 +33,6 @@ export const webComponentConfig = createBaseConfig({
 
 export const reactConfig = createBaseConfig({
   plugins: [react()],
-  autoImportReact: true,
   includeOptimizeDeps: ['react', 'react-dom'],
 });
 
