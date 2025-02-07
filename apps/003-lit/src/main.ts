@@ -90,6 +90,3 @@ class myApp extends LitElement {
     `;
   }
 }
-
-// Register custom elements
-customElements.define("my-app", myApp);

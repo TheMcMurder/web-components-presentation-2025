@@ -30,7 +30,6 @@ async function submitAction(_prevState, formData) {
   const name = formData.get("name");
   return { name };
 }
-
 function App() {
   const [state, formAction] = useActionState(submitAction, { name: "" });
 
