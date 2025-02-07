@@ -98,7 +98,6 @@ class myApp extends HTMLElement {
   }
 
   updateName = (_event) => {
-    console.log("****** shadow update");
     const myNameInput = this.querySelector("name-input");
     const myNameDisplay = this.querySelector("name-display");
     const newName = myNameInput?.value;
